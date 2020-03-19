@@ -63,7 +63,7 @@ project {
 
 object id01Lint : BuildType({
     id("01Lint")
-    name = "01. Lint"
+    name = "01. Check Lint"
 
     vcs {
         root(HttpsGithubComGopinathshivaAngularCliAppRefsHeadsMaster)
