@@ -32,5 +32,24 @@ changeProject(DslContext.projectId) {
                 param("title", "Build Duration")
             }
         }
+        add {
+            feature {
+                type = "project-graphs"
+                id = "PROJECT_EXT_8"
+                param("series", """
+                    [
+                      {
+                        "type": "valueType",
+                        "title": "Build Duration (all stages)",
+                        "sourceBuildTypeId": "ViaPipelineAngularCli_03Build",
+                        "key": "BuildDuration"
+                      }
+                    ]
+                """.trimIndent())
+                param("format", "text")
+                param("title", "New chart title")
+                param("seriesTitle", "Serie")
+            }
+        }
     }
 }
