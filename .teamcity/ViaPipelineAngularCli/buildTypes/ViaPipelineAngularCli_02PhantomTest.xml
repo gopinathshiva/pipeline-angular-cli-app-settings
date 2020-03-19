@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="8c953714-ae09-41ea-9851-dd3bcd4008f3" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
+  <name>02. Phantom Test</name>
+  <description />
+  <settings ref="ViaPipelineAngularCli_Testing">
+    <parameters>
+      <param name="test_name" value="test-phantomjs" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_12" name="Install &amp; Run PhantomJS testing" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[npm install
+npm run %test_name%]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings />
+    <requirements />
+    <build-triggers />
+    <dependencies>
+      <depend-on sourceBuildTypeId="ViaPipelineAngularCli_01Lint">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+    </dependencies>
+    <cleanup />
+  </settings>
+</build-type>
+
